@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitnall Attendance Tool</title>
+    <style>
+        body {
+            background: #222;
+            color: #fff;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #errorBox {
+            border: 2px solid red;
+            background: #ff000050;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+
+    <script src="./index.js" defer></script>
+</head>
+
+<body>
+    <h1>Whitnall Attendance Tools</h1>
+
+    <div id="errorBox"></div>
+
+    <h3 style="display: inline-block;">Semester: </h3>
+    <select name="" id="semesterSelect">
+        <option value="SM1">Semester 1</option>
+        <option value="SM2">Semester 2</option>
+    </select>
+
+    <fieldset>
+        <legend>TOOL 1 : First Hour Tardies</legend>
+
+        <h3>Pick relevant CSV file</h3>
+        <input type="file" name="" id="firstHourTardiesFilePicker" accept="text/csv" />
+
+        <button id="tardiesCalculateResults">Calculate Results</button>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>TOOL 2 : Truant Periods</legend>
+
+        <h3>Pick relevant CSV file</h3>
+        <input type="file" name="" id="truantFilePicker" accept="text/csv" />
+
+        <button id="truantsCalculateResults">Calculate Results</button>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>TOOL 3 : Acceptable Uses Limit</legend>
+
+        <h3>Pick relevant CSV file</h3>
+        <input type="file" name="" id="acceptableUsesFilePicker" accept="text/csv" />
+
+        <button id="acceptableUsesCalculateResults">Calculate Results</button>
+
+    </fieldset>
+
+</body>
+
+</html>
