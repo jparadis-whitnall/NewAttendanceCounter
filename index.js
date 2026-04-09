@@ -38,7 +38,7 @@ document.getElementById("tardiesCalculateResults").addEventListener("click", () 
     reader.addEventListener('load', (event) => {
         const fileData = event.target.result;
 
-        if (!fileData.includes("Column SettingsTotal Tardies")) {
+        if (!fileData.includes("Total Tardies")) {
             showError("This doesn't look like the first hour tardies file, did you select the right report?");
             return;
         }
@@ -46,8 +46,8 @@ document.getElementById("tardiesCalculateResults").addEventListener("click", () 
         const splitByLine = fileData.replaceAll("\r\n", "\n").split("\n");
 
         // remove headers
-        splitByLine.shift();
-        splitByLine.shift();
+        //splitByLine.shift();
+        //splitByLine.shift();
         splitByLine.shift();
 
         // filter by selected semester
