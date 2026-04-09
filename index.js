@@ -116,7 +116,7 @@ document.getElementById("truantsCalculateResults").addEventListener("click", () 
     reader.addEventListener('load', (event) => {
         const fileData = event.target.result;
 
-        if (!fileData.includes("Settingsfunction.SumofTruantABS")) {
+        if (!fileData.includes("function.SumofTruantABS")) {
             showError("This doesn't look like the truancy report file, did you select the right report?");
             return;
         }
@@ -124,8 +124,6 @@ document.getElementById("truantsCalculateResults").addEventListener("click", () 
         const splitByLine = fileData.replaceAll("\r\n", "\n").split("\n");
 
         // remove headers
-        splitByLine.shift();
-        splitByLine.shift();
         splitByLine.shift();
 
         // filter by selected semester
@@ -208,7 +206,7 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
     reader.addEventListener('load', (event) => {
         const fileData = event.target.result;
 
-        if (!fileData.includes("Settingsfunction.SumExcused")) {
+        if (!fileData.includes("function.SumExcused")) {
             showError("This doesn't look like the right file, did you select the correct report?");
             return;
         }
@@ -216,8 +214,6 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
         const splitByLine = fileData.replaceAll("\r\n", "\n").split("\n");
 
         // remove headers
-        splitByLine.shift();
-        splitByLine.shift();
         splitByLine.shift();
 
         // filter by selected semester
