@@ -62,7 +62,7 @@ document.getElementById("tardiesCalculateResults").addEventListener("click", () 
         }
 
         let finalResultsCSV = [
-            "Student ID,Last Name,First Name,Result"
+            "Student ID,Last Name,First Name,# of tardies,Result"
         ];
 
         for (const entry of filteredBySemester) {
@@ -85,7 +85,7 @@ document.getElementById("tardiesCalculateResults").addEventListener("click", () 
             }
 
             if (fate !== null) {
-                finalResultsCSV.push(`${studentId},${lastName},${firstName},${fate}`);
+                finalResultsCSV.push(`${studentId},${lastName},${firstName},${tardies},${fate}`);
             }
         }
         downloadCSV(
@@ -138,13 +138,15 @@ document.getElementById("truantsCalculateResults").addEventListener("click", () 
         }
 
         let finalResultsCSV = [
-            "Student ID,Result"
+            "Student ID,Last Name,First Name,Result"
         ];
 
         for (const entry of filteredBySemester) {
             const entrySplit = entry.split(",");
 
             const studentId = entrySplit[0];
+            const lastName  = entrySplit[1];
+            const firstName = entrySplit[2];
             const truancy   = parseInt(entrySplit[7]);
 
             let fate = null;
@@ -171,7 +173,7 @@ document.getElementById("truantsCalculateResults").addEventListener("click", () 
             }
 
             if (fate !== null) {
-                finalResultsCSV.push(`${studentId},${fate}`);
+                finalResultsCSV.push(`${studentId},${lastName},${firstName},${fate}`);
             }
         }
         downloadCSV(
@@ -228,13 +230,15 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
         }
 
         let finalResultsCSV = [
-            "Student ID,Result"
+            "Student ID,Last Name,First Name,Result"
         ];
 
         for (const entry of filteredBySemester) {
             const entrySplit = entry.split(",");
 
             const studentId = entrySplit[0];
+            const lastName  = entrySplit[1];
+            const firstName = entrySplit[2];
             const target   = parseInt(entrySplit[7]);
 
             let fate = null;
@@ -245,7 +249,7 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
             }
 
             if (fate !== null) {
-                finalResultsCSV.push(`${studentId},${fate}`);
+                finalResultsCSV.push(`${studentId},${lastName},${firstName},${fate}`);
             }
         }
         downloadCSV(
