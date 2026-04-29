@@ -147,7 +147,7 @@ document.getElementById("truantsCalculateResults").addEventListener("click", () 
             const studentId = entrySplit[0];
             const lastName  = entrySplit[1];
             const firstName = entrySplit[2];
-            const truancy   = parseInt(entrySplit[7]);
+            const truancy   = parseInt(entrySplit[7] / 4);
 
             let fate = null;
 
