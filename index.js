@@ -244,7 +244,7 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
             let fate = null;
 
             // determine student fate...
-            if (target >= 81) {
+            if (target >= 10) {
                 fate = "Acceptable Excuses Limit Letter";
             }
 
