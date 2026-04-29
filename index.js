@@ -239,7 +239,7 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
             const studentId = entrySplit[0];
             const lastName  = entrySplit[1];
             const firstName = entrySplit[2];
-            const target   = parseInt(entrySplit[7]);
+            const target   = parseInt(entrySplit[7]) / 4;
 
             let fate = null;
 
