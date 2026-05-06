@@ -219,44 +219,51 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
         splitByLine.shift();
 
         // filter by selected semester
-        let filteredBySemester = [];
+        //let filteredBySemester = [];
 
         // I alloc a new array here to reduce the chance that I'll make a mistake
         // when trying to delete items while iterating over the array.
+        //for (const entry of splitByLine) {
+        //    if (entry.split(",")[6] == document.getElementById("semesterSelect").value) {
+        //        filteredBySemester.push(entry);
+        const studentTotals = {};
         for (const entry of splitByLine) {
-            if (entry.split(",")[6] == document.getElementById("semesterSelect").value) {
-                filteredBySemester.push(entry);
-            }
-        }
-
-        let finalResultsCSV = [
-            "Student ID,Last Name,First Name,Result"
-        ];
-
-        for (const entry of filteredBySemester) {
             const entrySplit = entry.split(",");
+            if (entrySplit.length < 8) continue;
 
             const studentId = entrySplit[0];
             const lastName  = entrySplit[1];
             const firstName = entrySplit[2];
-            const target   = parseInt(entrySplit[7]) / 4;
+            const raw       = parseInt(entrySplit[7]);
 
-            let fate = null;
+                    if (isNaN(raw)) continue;
 
-            // determine student fate...
-            if (target >= 10) {
-                fate = "Acceptable Excuses Limit Letter";
-            }
-
-            if (fate !== null) {
-                finalResultsCSV.push(`${studentId},${lastName},${firstName},${fate}`);
-            }
+        if (!studentTotals[studentId]) {
+            studentTotals[studentId] = { lastName, firstName, total: 0 };
         }
-        downloadCSV(
-            finalResultsCSV.join("\n"),
-            "Acceptable Excuses Limit Results.csv"
-        );
-    });
-    reader.readAsText(selectedFile);
+        studentTotals[studentId].total += raw;
+    }
 
+    let finalResultsCSV = [
+        "Student ID,Last Name,First Name,Result"
+    ];
+    for (const [studentId, { lastName, firstName, total }] of Object.entries(studentTotals)) {
+        const target = total / 4;
+        let fate = null;
+
+        if (target >= 10) {
+            fate = "Acceptable Excuses Limit Letter";
+        }
+
+        if (fate !== null) {
+            finalResultsCSV.push(`${studentId},${lastName},${firstName},${fate}`);
+        }
+    }
+
+    downloadCSV(
+        finalResultsCSV.join("\n"),
+        "Acceptable Excuses Limit Results.csv"
+    );
 });
+reader.readAsText(selectedFile);
+           
