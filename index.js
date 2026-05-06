@@ -256,7 +256,7 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
         }
 
         if (fate !== null) {
-            finalResultsCSV.push(`${studentId},${lastName},${firstName},${fate}`);
+            finalResultsCSV.push(`${studentId},${lastName},${firstName},${studentTotals},${fate}`);
         }
     }
 
