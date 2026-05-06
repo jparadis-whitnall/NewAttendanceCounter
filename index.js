@@ -264,6 +264,6 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
         finalResultsCSV.join("\n"),
         "Acceptable Excuses Limit Results.csv"
     );
-});
-reader.readAsText(selectedFile);
-           
+    });
+    reader.readAsText(selectedFile);
+    });
