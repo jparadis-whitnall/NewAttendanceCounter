@@ -248,7 +248,7 @@ document.getElementById("acceptableUsesCalculateResults").addEventListener("clic
         "Student ID,Last Name,First Name,Result"
     ];
     for (const [studentId, { lastName, firstName, total }] of Object.entries(studentTotals)) {
-        const target = total / 4;
+        const target = Math.trunc(total / 4);
         let fate = null;
 
         if (target >= 10) {
